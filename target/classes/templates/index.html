@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>PÁGINA A PÁGINA LIBRERÍA</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+
+        <header th:replace="plantillas/partes :: cabecero "></header>
+        <h2>BIENVENIDO A LA PÁGINA DE INICIO</h2>
+        <h4>LIBRERÍA: PÁGINA A PÁGINA</h4>
+        <p th:text="${mensaje}"></p>
+        <a th:href="@{/agregar}"> AGREGAR LIBRO </a>
+        <p th:text="${dato}"></p>
+        <hr>
+        <!--    
+                
+                <hr>-->
+        <div th:if="${Libros != null and !Libros.empty}">
+            <table border="1">
+                <tr>
+                    <th>ID </th>
+                    <th>TITULO </th>
+                    <th>PAGINAS </th>
+                    <th>PRECIO </th>
+                    <th>FECHA PUBLICACION </th>
+                    <th>EDITAR</th>
+                    <th>ELIMINAR</th>
+
+                    <!--<th>USUARIO ID </th>-->
+
+                </tr>
+                <tr th:each="u: ${Libros}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.titulo}"></td>
+                    <td th:text="${u.paginas}"></td>
+                    <td th:text="${u.precio}"></td>
+                    <td th:text="${u.fechaPublicacion}"></td>
+                    <td><a th:href="@{/editar/}+${u.id}" th:text="EDITAR"></a></td>
+                    <td><a th:href="@{/eliminar/}+${u.id}" th:text="ELIMINAR"></a></td>
+
+
+                </tr>
+            </table>
+            <div th:if="${Libros == null or Libros.empty}">
+                La lista de Libros esta Vacia
+            </div> <br/><hr>
+        </div>
+        <footer th:replace="plantillas/partes :: pie"></footer>
+
+    </body>
+</html>

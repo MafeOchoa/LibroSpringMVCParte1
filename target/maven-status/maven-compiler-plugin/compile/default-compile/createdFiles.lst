@@ -1,0 +1,6 @@
+com\Libro\demo\models\Libro.class
+com\Libro\demo\controladores\ControladorInicio.class
+com\Libro\demo\DemoApplication.class
+com\Libro\demo\servicio\IULibroServicio.class
+com\Libro\demo\servicio\LibroServicioImp.class
+com\Libro\demo\dao\IULibroCrud.class
